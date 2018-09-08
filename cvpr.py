@@ -13,12 +13,12 @@ def _main(i, all_num, url, filename):
 
 if __name__ == '__main__':
 
-    # ICCV 2017, CVPR 2018, CVPR 2017, CVPR 2016
-    year = 2017  # 2018, 2017, 2016
-    conference = "ICCV"  # ICCV, CVPR
+    # ICCV 2017, CVPR 2018, CVPR 2017, CVPR 2016, ECCV 2018
+    year = 2018  # 2018, 2017, 2016
+    conference = "ECCV"  # ICCV, CVPR
     address = "http://openaccess.thecvf.com/"
     data_url = "{}{}{}.py".format(address, conference, year)
-    localDir = 'C:\\Users\\ALISURE\\Desktop\\{}-{}\\'.format(conference, year)
+    localDir = 'C:\\Users\\ALISURE\\Desktop\\Paper\\{}-{}\\'.format(conference, year)
     if not os.path.exists(localDir):
         os.makedirs(localDir)
 

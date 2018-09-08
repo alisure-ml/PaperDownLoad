@@ -39,8 +39,7 @@ if __name__ == '__main__':
     pool = multiprocessing.Pool(processes=multiprocessing.cpu_count() - 1)
 
     for index, _link in enumerate(link_list):
-        if index > 612:
-            pool.apply_async(func=_main, args=(index, len(link_list), _link, Config["localDir"]))
+        pool.apply_async(func=_main, args=(index, len(link_list), _link, Config["localDir"]))
         pass
 
     pool.close()
