@@ -54,8 +54,9 @@ if __name__ == '__main__':
     Config = {
         "SummaryURL": "http://proceedings.mlr.press/v97/",
         "FindPattern": r"(?<=href=\")http://proceedings.mlr.press/v97/.+?\.pdf(?=\")|(?<=\"title\">).+?(?=</p>)",
-        "localDir": "D:\\paper\\{}-{}".format("ICML", 2019)
+        "localDir": "D:\\paper\\{}-{}_supervise".format("ICML", 2019)
     }
+
     if not os.path.exists(Config["localDir"]):
         os.makedirs(Config["localDir"])
 
@@ -79,7 +80,8 @@ if __name__ == '__main__':
 
     print("begin to download")
     for index, _link_info in enumerate(link_list):
-        pool.apply_async(func=_main, args=(index, len(link_list), _link_info, Config["localDir"]))
+        if "supervise" in _link_info[0]:
+            pool.apply_async(func=_main, args=(index, len(link_list), _link_info, Config["localDir"]))
         pass
 
     pool.close()
